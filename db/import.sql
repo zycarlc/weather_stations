@@ -24,3 +24,20 @@ CREATE TABLE stations (
     latitude numeric(10,7),
     longitude numeric(10,7)
 );
+
+CREATE TABLE weather_data (
+    id serial,
+    station_id int,
+    timestamp timestamp,
+    AirT_inst numeric(10,2),
+    GHI_inist float,
+    avg_Wm2 numeric(10,1),
+    avg_airTemp numeric(10,2),
+    WS_avg numeric(10,3),
+    WD_avg numeric(10,1)
+);
+
+COPY weather_data(station_id, timestamp, AirT_inst, GHI_inist, avg_Wm2, avg_airTemp, WS_avg, WD_avg )
+FROM '/Users/zhenyuc/Downloads/Untitled spreadsheet - Sheet1.csv'
+DELIMITER ','
+CSV HEADER;
